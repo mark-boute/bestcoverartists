@@ -1,0 +1,48 @@
+{% load i18n static %}
+{% get_current_language as LANGUAGE_CODE %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>{% block title %}{% trans "Best Cover Artists" %}{% endblock %}</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="theme-color" content="#F5B21D"/>
+</head>
+<body class="{% block body_class %}{% endblock %}">
+
+<div id="accentbar"></div>
+
+<nav>
+    <div>
+        <a href="{% url 'index' %}">
+            <picture>
+                <img src="{% static 'img/logo.svg' %}"
+                     id="logo"
+                     alt="{% trans 'BCA' %}"
+                     height="150px">
+            </picture>
+        </a>
+    </div>
+</nav>
+
+<header id="page-header">
+    {% block header_image_container %}
+    {% endblock header_image_container %}
+</header>
+
+{% block pre-body %}{% endblock pre-body %}
+
+<div id="page-content">
+    {% block body %}{% endblock body %}
+</div>
+
+{% block post-body %}{% endblock post-body %}
+
+<footer>
+    footer
+</footer>
+
+</body>
+</html>

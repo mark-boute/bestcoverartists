@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "bestcoverartists"
+version = "0.1.0"
+description = ""
+authors = ["Mark Boute <bmark0702@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+Django = "3.2.7"
+
+[tool.poetry.dev-dependencies]
+black = "^21.8b0"
+pylint = "^2.10.2"
+pylint-django = "^2.4.4"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
