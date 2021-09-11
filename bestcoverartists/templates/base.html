@@ -1,4 +1,4 @@
-{% load i18n static %}
+{% load i18n static compress %}
 {% get_current_language as LANGUAGE_CODE %}
 <!DOCTYPE html>
 <html lang="en">
@@ -9,21 +9,70 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="theme-color" content="#F5B21D"/>
+
+    {% block css_head %}
+        {% compress css %}
+            <link href="{% static "bestcoverartists/css/main.scss" %}" rel="stylesheet"
+                  type="text/x-scss">
+        {% endcompress %}
+    {% endblock %}
+
+    {% block js_head %}
+    {% endblock %}
 </head>
 <body class="{% block body_class %}{% endblock %}">
 
-<div id="accentbar"></div>
+<div id="accent-bar"></div>
 
-<nav>
-    <div>
-        <a href="{% url 'index' %}">
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'index' %}">
             <picture>
-                <img src="{% static 'img/logo.svg' %}"
+                <source srcset="{% static 'bestcoverartists/img/logo-dark.svg' %}" media="(prefers-color-scheme: dark)">
+                <source srcset="{% static 'bestcoverartists/img/logo.svg' %}" media="(prefers-color-scheme: light)">
+                <img src="{% static 'bestcoverartists/img/logo.svg' %}"
                      id="logo"
                      alt="{% trans 'BCA' %}"
-                     height="150px">
+                     height="220px">
             </picture>
         </a>
+
+        <div class="flex-grow-1"></div>
+
+        <div class="navbar-user order-1 d-flex">
+            <div class="btn-group">
+                {% if not user.is_authenticated %}
+                    <a href="{% url 'index' %}" class="btn btn-primary"><i
+                        class="fas fa-user"></i></a>
+                {% else %}
+                    <button type="button"
+                            class="btn btn-primary dropdown-toggle dropdown-toggle-split"
+                            data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                        <i class="fas fa-user pr-2"></i>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item"
+                           href="{% url 'index' %}">
+                            {% trans "index"|capfirst %}
+                        </a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <button class="navbar-toggler order-0 justify-content-end"
+                type="button" data-toggle="collapse"
+                data-target="#navbarCollapse" aria-controls="navbarCollapse"
+                aria-expanded="false"
+                aria-label="Toggle navigation"><i class="fa fa-bars"></i>
+        </button>
+
+        <div
+            class="collapse navbar-collapse justify-content-end pr-lg-4 order-lg-0 order-2"
+            id="navbarCollapse">
+        </div>
+
     </div>
 </nav>
 
