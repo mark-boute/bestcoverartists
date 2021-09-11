@@ -1,0 +1,56 @@
+// Font and Styles
+$primary-font: 'Open Sans', sans-serif;
+$header-font: 'Oswald', sans-serif;
+$regular: 400;
+$bold: 700;
+$light: 300;
+$letter-spacing: 0px;
+$fa-font-path: "../fonts";
+
+// Theme Colors
+$yellow: #F5B21C;
+$dark-yellow: #EAAA1B;
+$darkdark-grey: #1E1E1E1C;
+$dark-grey: #1F1F20;
+$grey: #616161;
+$light-grey: #dddddd;
+$lightlight-grey: #fCFCFB;
+$white: #ffffff;
+$preset-transparent: RGBA(235, 88, 111, 0.7);
+
+:root { // This should be a white color-scheme
+    --background-color: #{$dark-grey};
+    --background-shade: #{$darkdark-grey};
+    --background-shade-light: #{$lightlight-grey};
+    --navbar-background-color: #{$dark-grey};
+
+    --text-color: #{$lightlight-grey};
+
+    --footer-text-color: #{$lightlight-grey};
+    --footer-text-color-hover: #{$white};
+
+    --primary: #{$yellow};
+    --primary-hover: #{$dark-yellow};
+    --primary-rgb: #{red($yellow), green($yellow), blue($yellow)};
+    --primary-contrast: #{$lightlight-grey};
+    --primary-contrast-hover: #{$white};
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+    --background-color: #{$dark-grey};
+    --background-shade: #{$darkdark-grey};
+    --background-shade-light: #{$lightlight-grey};
+    --navbar-background-color: #{$dark-grey};
+
+    --text-color: #{$lightlight-grey};
+
+    --footer-text-color: #{$lightlight-grey};
+    --footer-text-color-hover: #{$white};
+
+    --primary: #{$yellow};
+    --primary-rgb: #{red($yellow), green($yellow), blue($yellow)};
+    --primary-contrast: #{$lightlight-grey};
+    --primary-contrast-hover: #{$white};
+    }
+}

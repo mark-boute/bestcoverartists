@@ -7,6 +7,7 @@ authors = ["Mark Boute <bmark0702@gmail.com>"]
 [tool.poetry.dependencies]
 python = "^3.9"
 Django = "3.2.7"
+django-compressor = "^2.4.1"
 
 [tool.poetry.dev-dependencies]
 black = "^21.8b0"
